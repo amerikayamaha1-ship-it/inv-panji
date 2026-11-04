@@ -1,0 +1,5 @@
+<?= $this->extend('layouts/main') ?><?= $this->section('content') ?>
+<div class="d-flex justify-content-between align-items-center mb-3"><h1 class="h3">Kartu Stok / Persediaan</h1><a class="btn btn-primary" href="<?= site_url('barang/masuk/create') ?>">+ Barang Masuk</a></div>
+<div class="card shadow-sm"><div class="card-body p-0"><table class="table table-hover mb-0"><thead><tr><th>Kode</th><th>Nama Barang</th><th>Kategori</th><th>Stok</th><th>Minimum</th><th>Status</th></tr></thead><tbody>
+<?php foreach ($barang as $row): ?><tr><td><?= esc($row['kode_barang']) ?></td><td><?= esc($row['nama_barang']) ?></td><td><?= esc($row['kategori_nama']) ?></td><td><?= esc($row['stok']) ?> <?= esc($row['satuan']) ?></td><td><?= esc($row['stok_minimum']) ?></td><td><span class="badge text-bg-<?= $row['stok'] <= $row['stok_minimum'] ? 'warning' : 'success' ?>"><?= $row['stok'] <= $row['stok_minimum'] ? 'MENIPIS' : 'AMAN' ?></span></td></tr><?php endforeach ?>
+</tbody></table></div></div><?= $this->endSection() ?>
